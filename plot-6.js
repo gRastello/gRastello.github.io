@@ -396,8 +396,8 @@
 		labelGrid();
 
 		/* draw function. */
-		drawFunction((x) => {return 2 * f(1.5 * x - 3) - 4;}, "orange");
-		drawFunction((x) => {return fieldBeta * f(fieldAlpha * x - fieldA) + fieldB;}, "brown");
+		drawFunction((x) => {return 2 * f(1.5 * x - 3) - 4;}, "green");
+		drawFunction((x) => {return fieldBeta * f(fieldAlpha * x - fieldA) + fieldB;}, "red");
 	}
 
 	function init() {
