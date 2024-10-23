@@ -41,7 +41,7 @@
 	let maxX = 0;
 	let maxY = 0;
 
-	let fieldA = 1;
+	let fieldA = 0;
 	let fieldB = 0;
 	let fieldAlpha = 1;
 	let fieldBeta = 1;
@@ -397,7 +397,7 @@
 
 		/* draw function. */
 		drawFunction((x) => {return 2 * f(1.5 * x - 3) - 4;}, "orange");
-		drawFunction((x) => {return fieldBeta * f(fieldAlpha * x + fieldA) + fieldB;}, "brown");
+		drawFunction((x) => {return fieldBeta * f(fieldAlpha * x - fieldA) + fieldB;}, "brown");
 	}
 
 	function init() {
