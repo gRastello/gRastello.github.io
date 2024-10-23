@@ -1,0 +1,11 @@
+* DONE semplificare per non spaventare
+* DONE scrivere consegna 2 per benino
+* DONE aggiungere una *domanda* che attiri un pochino l'attenzione
+* DONE aggiungere teoria finale
+** DONE grafichino con vettore
+** DONE questione "stretch"
+* TODO pensare ad un'appliazione veloce e magari "giocabile"
+* TODO pensare ad un migliore titolo
+
+* Note
+- Son da fare in termini di vettori o più "spartano"?

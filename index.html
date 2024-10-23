@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+
+	<!-- favicon and title -->
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+	<title>Trasformazioni di funzioni e grafici</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="fonts.css">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- slideshow script -->
+	<script src="script.js" defer></script>
+
+	<!-- mathjax -->
+	<script src="mathjax/es5/tex-chtml.js" id="mathjax-script" async></script>
+  </head>
+  <body>
+	<div class="page-container">
+	  <nav></nav>
+
+	  <div class="main-content">
+		<div class="slide">
+		  <h1>Trasformazioni di funzioni e grafici</h1>
+		</div>
+
+		<div class="slide">
+		  <h2>Consegna 1</h2>
+		  <div class="box">
+			<p>
+			  \[f(x) = \frac{1}{6}x^3 + \frac{1}{4}x^2 - x\]
+			</p>
+			<ul>
+			  <li>Calcolare il valore di \(f\) per \(x = -3, -2, -1, 0, +1, +2, +3\) sostituendo nell'espresione algebrica della funzione.</li>
+			  <li>Riportare i punti ottenuti su un piano cartesiano e tracciare un grafico della funzione.</li>
+			</ul>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <div class="grid-2" style="grid-template-columns: 1fr 3fr;">
+			<table>
+			  <tr class="label-row">
+				<th>\(x\)</th>
+				<th>\(f(x)\)</th>
+			  </tr>
+			  <tr>
+				<th>\(-3\)</th>
+				<th>\(\frac{3}{4} \approx 0.8\)</th>
+			  </tr>
+			  <tr>
+				<th>\(-2\)</th>
+				<th>\(\frac{5}{3} \approx 1.7\)</th>
+			  </tr>
+			  <tr>
+				<th>\(-1\)</th>
+				<th>\(\frac{13}{12} \approx 1.1\)</th>
+			  </tr>
+			  <tr>
+				<th>\(0\)</th>
+				<th>\(0\)</th>
+			  </tr>
+			  <tr>
+				<th>\(1\)</th>
+				<th>\(-\frac{7}{12} \approx -0.6\)</th>
+			  </tr>
+			  <tr>
+				<th>\(2\)</th>
+				<th>\(\frac{1}{3} \approx 0.3\)</th>
+			  </tr>
+			  <tr>
+				<th>\(3\)</th>
+				<th>\(\frac{15}{4} \approx 3.8\)</th>
+			  </tr>
+			</table>
+			<div class="canvas-container">
+			  <canvas id="plot-1" class="plot" width="600px" height="400px">
+				TODO alternative here.
+			  </canvas>
+
+			  <div class="grid-3">
+				<buttonk class="icon-button" id="plot-1-points"><span class="material-icons">lists</span></button>
+				<button class="icon-button" id="plot-1-polygonal"><span class="material-icons">timeline</span></button>
+				<button class="icon-button" id="plot-1-trueplot"><span class="material-icons">query_stats</span></button>
+			  </div>
+
+			  <script src="plot-1.js" defer></script>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <h2>Domande</h2>
+		  <div class="box">
+			<ul>
+			  <li>
+				Cosa succede se <b>aggiungo o tolgo qualcosa</b> a \(f(x)\)?
+			  </li>
+			  <li>
+				Cosa succede se <b>moltiplico o divido</b> \(f(x)\)?
+			  </li>
+			  <li>
+				Cosa succede se <b>modifico l'input \(x\) aggiungendo o togliendo qualcosa</b>?
+			  </li>
+			  <li>
+				Cosa succede se <b>modifico l'input \(x\) moltiplicandolo o dividendolo</b>?
+			  </li>
+			</ul>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <h2>Consegna 2</h2>
+		  <div class="box">
+			<ul>
+			  <li>
+				Formare 4 gruppi.
+			  </li>
+			  <li>
+				Calcolare il valore delle funzioni "modificate" negli stessi punti aggiungendo nuove colonne alla tabella.
+			  </li>
+			  <li>
+				Tracciare un grafico delle funzioni "modificate".
+			  </li>
+			  <li>
+				Discutere <b>similitudini e differenze</b> tra i grafici prodotti e il grafico originale, cercate di capire il <b>perché</b>.
+			  </li>
+			</ul>
+		  </div>
+		</div>
+
+		<!-- inserire esempio qui  -->
+
+		<div class="slide">
+		  <div class="grid-2">
+			<div class="box">
+			  <h3 class="group">&ensp; 1</h3>
+			  \[f(x) + 2\]
+			  \[f(x) - 2\]
+			</div>
+			<div class="box">
+			  <h3 class="group">&ensp; 2</h3>
+			  <p>
+				\[2f(x)\]
+				\[\frac{1}{2}f(x)\]
+			  </p>
+			</div>
+			<div class="box">
+			  <h3 class="group">&ensp; 3</h3>
+			  <p>
+				\[f(x + 1)\]
+				\[f(x - 1)\]
+			  </p>
+			</div>
+			<div class="box">
+			  <h3 class="group">&ensp; 4</h3>
+			  <p>
+				\[f(2x)\]
+				\[f\left(\frac{1}{2}x\right)\]
+			  </p>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <h2>Discussione</h2>
+		  <div class="grid-2" style="grid-template-columns: 2fr 1fr;">
+			<div class="canvas-container">
+			  <canvas id="plot-2" class="plot" width="600px" height="400px">
+				TODO alternative here.
+			  </canvas>
+			  <script src="plot-2.js" defer></script>
+			</div>
+
+			<div class="grid-2">
+			  <button id="plot-2-11">\(f(x) + 2\)</button>
+			  <button id="plot-2-12">\(f(x) - 2\)</button>
+			  <button id="plot-2-21">\(2 \cdot f(x)\)</button>
+			  <button id="plot-2-22">\(\frac{1}{2} \cdot f(x)\)</button>
+			  <button id="plot-2-31">\(f(x + 1)\)</button>
+			  <button id="plot-2-32">\(f(x - 1)\)</button>
+			  <button id="plot-2-41">\(f(2x)\)</button>
+			  <button id="plot-2-42">\(f\left(\frac{1}{2}x\right)\)</button>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <h2>Teoria</h2>
+		</div>
+
+		<div class="slide">
+		  <div class="box">
+			Quando passo da \(f(x)\) a \(f(x - a) + b\) avviene una <b>traslazione</b> del grafico di un vettore \(\overrightarrow{v} = (a, b)\).
+		  </div>
+
+		  <div class="grid-2" style="grid-template-columns: 3fr 1fr;">
+			<div class="canvas-container">
+			  <canvas id="plot-3" class="plot" width="800px" height="400px">
+				TODO alternative here.
+			  </canvas>
+			</div>
+			<div>
+			  <div class="box">
+				\(a = \)<input type="text" id="field-1" value="0">
+			  </div>
+			  <div class="box">
+				\(b = \)<input type="text" id="field-2" value="0">
+			  </div>
+			  <script src="plot-3.js" defer></script>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <div class="grid-2">
+			<div>
+			  <div class="box">
+				Quando passo da \(f(x)\) a \(\beta \cdot f(x)\) avviene una
+				<ul>
+				  <li><b>dilatazione verticale</b> se \(\beta > 1\);</li>
+				  <li><b>contrazione verticale</b> se \(0 < \beta < 1\).</li>
+
+																</ul>
+				<p>
+				  \(y = \beta \cdot f(x)\)
+				</p>
+				<p>
+				  \(\beta = \) <span id="f-dilatazione"></span>
+				</p>
+			  </div>
+			</div>
+			<div class="canvas-container">
+			  <canvas id="plot-4" class="plot" width="600px" height="400px">
+				TODO alternative here.
+			  </canvas>
+
+			  <canvas id="slider-1" class="slider" width="600px" height="50">
+				TODO alternative here.
+			  </canvas>
+
+			  <script src="plot-4.js" defer></script>
+			</div>
+
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <div class="grid-2">
+			<div class="canvas-container">
+			  <canvas id="plot-5" class="plot" width="600px" height="400px">
+				TODO alternative here.
+			  </canvas>
+
+			  <canvas id="slider-2" class="slider" width="600px" height="50">
+				TODO alternative here.
+			  </canvas>
+
+			  <script src="plot-5.js" defer></script>
+			</div>
+			<div>
+			  <div class="box">
+				Quando passo da \(f(x)\) a \(f(\alpha x)\) avviene una
+				<ul>
+				  <li><b>dilatazione orizzontale</b> se \(0 < \alpha < 1\);</li>
+																  <li><b>contrazione orizzontale</b> se \(a > 1\).</li>
+															  </ul>
+				<p>
+				  \(y = f(\alpha x)\)
+				</p>
+				<p>
+				  \(\alpha = \) <span id="f2-dilatazione"></span>
+				</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <h2>Autovalutazione</h2>
+
+		  <div class="canvas-container">
+			<canvas id="plot-6" class="plot" width="900px" height="500px">
+			  TODO alternative here.
+			</canvas>
+		  </div>
+		  
+		  <div class="grid-2" style="grid-template-columns: 1fr 1fr 1fr;">
+			<div class="box">
+			  \(a = \)<input type="text" id="field-61" value="1">
+			</div>
+			<div class="box">
+			  \(b = \)<input type="text" id="field-62" value="0">
+			</div>
+			<div style="display: flex; justify-content: center; align-items: center;">
+			  \[y = \beta f(\alpha x + a) + b\]
+			</div>
+			<div class="box">
+			  \(\alpha= \)<input type="text" id="field-63" value="1">
+			</div>
+			<div class="box">
+			  \(\beta = \)<input type="text" id="field-64" value="1">
+			</div>
+			<button class="icon-button" id="reroll" style="margin-top: 20px;"><span class="material-icons">replay</span></button>
+		  </div>
+
+		  <script src="plot-6.js" defer></script>
+		</div>
+
+		<div class="slide">
+		  <p><b><i>Fine.<i></b></p>
+		</div>
+	  </div>
+	</div>
+  </body>
+</html>

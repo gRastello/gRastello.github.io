@@ -1,0 +1,264 @@
+:root {
+	/* colors */
+	--background: #ffffff;
+	--secondary: #333333;
+	--accent: #D7E1E6;
+
+	/* padding, margins and all that */
+	--small-page-padding: 20px;
+	--large-page-padding: 40px;
+	--page-size: 5fr;
+
+	--grid-gap: 10px;
+	--grid-content: 5fr;
+	--grid-side: 1fr;
+
+	/* slides options */
+	--slide-padding: 20px;
+
+	/* buttons */
+	--button-diameter: 30px;
+	--button-radius: calc(var(--button-diameter) / 2);
+
+	/* fonts */
+	--sans-serif-font: 'Noto Sans', sans-serif;
+	--font-size: 16pt;
+	--bold-weight: 700;
+}
+
+/* main container, gives responsive structure to the page */
+.page-container {
+	/* grid setup */
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: var(--grid-side) var(--grid-content) var(--grid-side);
+
+	/* default opacity */
+	opacity: 1;
+
+	/* misc */
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+}
+
+.main-content {
+	/* font and size */
+	font-family: var(--sans-serif-font);
+	font-size: var(--font-size);
+
+	/* whitespace */
+	padding: var(--large-page-padding);
+	margin: 0;
+
+	/* colors */
+	background-color: var(--background);
+	color: var(--secondary);
+	opacity: 1;
+}
+
+div.slide {
+	padding: 5px 10px var(--slide-padding) 10px;
+	border-radius: var(--button-radius);
+	opacity: 1;
+
+	/* animation */
+	transition: all .5s ease-in-out;
+}
+
+div.slide.hidden {
+	opacity: 0.25;
+	filter: blur(4px);
+}
+
+/* common elements */
+h1 {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+	font-size: 250%;
+	font-weight: var(--bold-weight);
+}
+
+h2 {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+	font-size: 175%;
+	font-weight: var(--bold-weight);
+}
+
+h3 {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+	/* font-size: 175%; */
+	font-weight: var(--bold-weight);
+}
+
+h3.group {
+	text-align: center;
+}
+
+h3.group::before {
+	content: "group";
+	font-family: "Material Symbols Rounded";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 120%;
+	vertical-align: bottom;
+}
+
+p {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+}
+
+ul {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+	margin-left: .25rem;
+	padding: 0;
+
+	display: grid;
+	gap: .5rem;
+
+	list-style: none;
+}
+
+ul li::before {
+	content: "chevron_right";
+	font-family: "Material Symbols Rounded";
+	font-weight: normal;
+	font-style: normal;
+	font-size: 120%;
+	vertical-align: bottom;
+}
+
+table  {
+	border-collapse: collapse;
+}
+
+th:first-child {
+	border-right: 1px solid black;
+}
+
+tr.label-row {
+	border-bottom: 1px solid black;
+}
+
+/* grid layouts */
+.grid-2 {
+	/* grid setup */
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: 1fr 1fr;
+
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+}
+
+.grid-3 {
+	/* grid setup */
+	display: grid;
+	gap: var(--grid-gap);
+	grid-template-columns: 1fr 1fr 1fr;
+
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+}
+
+/* boxes */
+
+.box {
+	background-color: var(--accent);
+	border-radius: var(--button-radius);
+	padding: 15px 32px 15px 32px;
+
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+}
+
+.box > ul {
+	margin-top: 0;
+}
+
+button {
+	background-color: var(--accent);
+	border: none;
+	border-radius: var(--button-radius);
+	color: var(--secondary);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  color: var(--background);
+}
+
+button.on {
+  background-color: var(--secondary);
+  color: var(--background);
+}
+
+input[type=text] {
+	padding: 12px 5px;
+	margin: 8px 0;
+	border-radius: var(--button-radius);
+	border: 0px solid var(--secondary);
+	background: var(--accent);
+	box-sizing: border-box;
+
+	width: 80%;
+
+	font-size: var(--font-size);
+}
+
+/* canvas */
+div.canvas-container {
+	margin-top: var(--small-page-padding);
+	margin-bottom: 0;
+
+	position: relative;
+	display: grid;
+	place-items: center;
+
+	border: none;
+	outline: none;
+
+	background-color: transparent;
+}
+
+div.canvas-container .icon-button {
+	background-color: var(--accent);
+	border: none;
+	border-radius: var(--button-radius);
+	color: var(--secondary);
+	padding: 15px 32px 12px 32px; /* icon centering hack */
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	/* font-size: 16px; */
+}
+
+div.canvas-container .icon-button:hover {
+  background-color: var(--secondary);
+  color: var(--background);
+}
+
+canvas.plot {
+	border: none;
+	outline: none;
+	border-radius: var(--button-radius);
+
+	background-color: transparent;
+	cursor: crosshair;
+}
+
+canvas.slider {
+	border: none;
+	outline: none;
+	border-radius: var(--button-radius);
+	margin-top: var(--small-page-padding);
+
+	background-color: transparent;
+}
