@@ -326,7 +326,7 @@
 		ctx.stroke();
 
 		const N = Math.sqrt(fieldA * fieldA + fieldB * fieldB);
-
+		
 		/* we draw a triangle */
 		ctx.save();
 		ctx.translate(fieldA * scale.x, (f(0) + fieldB) * scale.y);

@@ -381,7 +381,7 @@
 
 		/* update the writing on the wall. */
 		let content = parameterA;
-		paragraph.textContent = content;
+		paragraph.textContent = content.toFixed(2);
 	}
 
 	let sliderDrag = false;

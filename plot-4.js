@@ -376,7 +376,7 @@
 		sliderCtx.restore();
 
 		/* update the writing on the wall. */
-		let content = parameterA;
+		let content = parameterA.toFixed(2);
 		paragraph.textContent = content;
 	}
 
