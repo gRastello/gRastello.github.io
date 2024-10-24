@@ -1,7 +1,7 @@
 (function() {/* constants */
-	const canvas = document.getElementById("plot-6");
+	const canvas = document.getElementById("plot-7");
 	const ctx = canvas.getContext("2d");
-
+	
 	const halfWidth = canvas.width / 2;
 	const halfHeight = canvas.height / 2;
 
@@ -13,14 +13,14 @@
 	const labelSize = 15;
 
 	const scaleOptions = {
-		defaultX: 10,
-		defaultY: 10,
+		defaultX: 30,
+		defaultY: 30,
 
-		minX: 5,
-		minY: 5,
+		minX: 30,
+		minY: 30,
 
-		maxX: 25,
-		maxY: 25,
+		maxX: 30,
+		maxY: 30,
 	};
 
 	/* globals */
@@ -32,8 +32,8 @@
 	};
 
 	let origin = {
-		x: 0,
-		y: 0,
+		x: 8.5,
+		y: 5.5,
 	};
 
 	let minX = 0;
@@ -45,11 +45,6 @@
 	let fieldB = 0;
 	let fieldAlpha = 1;
 	let fieldBeta = 1;
-
-	let f = (x) => {
-		x = (x + 10)/6;
-		return x*x*x - 4*x*x + x - 2;
-	};
 
 	/* draw an horizontal line at y */
 	function drawHorizontal(y) {
@@ -76,6 +71,16 @@
 
 		let test = ctx.measureText(text);
 		ctx.fillText(text, x * scale.x - test.width / 2, -1 * y * scale.y + labelSize);
+
+		ctx.restore();
+	}
+
+	function writeTextSide(text, x, y) {
+		ctx.save();
+		ctx.scale(1.0, -1.0);
+
+		let test = ctx.measureText(text);
+		ctx.fillText(text, x * scale.x - test.width / 2 -labelSize, -1 * y * scale.y + labelSize / 2);
 
 		ctx.restore();
 	}
@@ -219,27 +224,51 @@
 			if (i % 5 == 0) writeText(i, i, 0);
 		}
 
-		for (let i = 1; i <= maxY; i++) {
-			if (i % 5 == 0) writeText(i, 0, i);
-		}
+		writeTextSide(50, 0, 5);
+		writeTextSide(100, 0, 10);
 
-		for (let i = -1; i >= minY; i--) {
-			if (i % 5 == 0) writeText(i, 0, i);
-		}
+		// for (let i = 1; i <= maxY; i++) {
+		// 	if (i % 5 == 0) writeText(i, 0, i);
+		// }
+
+		// for (let i = -1; i >= minY; i--) {
+		// 	if (i % 5 == 0) writeText(i, 0, i);
+		// }
 	}
 
 	/* draw the graph of a function */
 	function drawFunction(f, style) {
 		ctx.save();
-		ctx.beginPath();
+
 
 		/* aesthetics */
 		ctx.strokeStyle = style;
 		ctx.lineWidth = 2.0;
 
 		/* actual drawing */
-		ctx.moveTo(minX * scale.x, f(minX) * scale.y);
+		let x0 = 0;
+		ctx.moveTo(x0, f(x0) * scale.y);
+		ctx.beginPath();
+		while (x0 < maxX) {
+			ctx.lineTo(x0 * scale.x, f(x0) * scale.y);
+			x0 += .01;
+		}
+
+		ctx.stroke();
+		ctx.restore();
+	}
+
+	function drawFunction2(f, style) {
+		ctx.save();
+
+		/* aesthetics */
+		ctx.strokeStyle = style;
+		ctx.lineWidth = 2.0;
+
+		/* actual drawing */
 		let x0 = minX;
+		ctx.moveTo(x0, f(minX) * scale.y);
+		ctx.beginPath();
 		while (x0 < maxX) {
 			ctx.lineTo(x0 * scale.x, f(x0) * scale.y);
 			x0 += 0.1;
@@ -281,51 +310,11 @@
 
 	canvas.addEventListener('mousedown', (e) => {
 		drag = true;
-	});
+	})
 
 	canvas.addEventListener('mouseup', (e) => {
 		drag = false;
-	});
-
-	const field1 = document.getElementById("field-61");
-	const field2 = document.getElementById("field-62");
-	const field3 = document.getElementById("field-63");
-	const field4 = document.getElementById("field-64");
-
-	field1.addEventListener('input', (e) => {
-		fieldA = parseFloat(e.target.value);
-		draw();
-	});
-
-	field2.addEventListener('input', (e) => {
-		fieldB = parseFloat(e.target.value);
-		draw();
-	});
-
-	field3.addEventListener('input', (e) => {
-		fieldAlpha = parseFloat(e.target.value);
-		draw();
-	});
-
-	field4.addEventListener('input', (e) => {
-		fieldBeta = parseFloat(e.target.value);
-		draw();
-	});
-
-	const button = document.getElementById("reroll");
-	button.addEventListener('click', (e) => {
-		fieldA = 0;
-		fieldB = 0;
-		fieldAlpha = 1;
-		fieldBeta = 1;
-
-		field1.value = "0";
-		field2.value = "0";
-		field3.value = "1";
-		field4.value = "1";
-
-		draw();
-	});
+	})
 
 	/* update the Point Of View (POV) of our plot */
 	function updatePOV(dx = 0, dy = 0) {
@@ -348,39 +337,56 @@
 		ctx.setTransform(1, 0, 0, -1, halfWidth - origin.x * scale.x, halfHeight + origin.y * scale.y);
 	}
 
-	function drawArrow(f, style) {
+	const field1 = document.getElementById("field-71");
+	const field2 = document.getElementById("field-72");
+	const field3 = document.getElementById("field-73");
+	const field4 = document.getElementById("field-74");
+
+	field1.addEventListener('input', (e) => {
+		fieldA = parseFloat(e.target.value);
+		draw();
+	});
+
+	field2.addEventListener('input', (e) => {
+		fieldB = parseFloat(e.target.value);
+		draw();
+	});
+
+	field3.addEventListener('input', (e) => {
+		fieldAlpha = parseFloat(e.target.value);
+		draw();
+	});
+
+	field4.addEventListener('input', (e) => {
+		fieldBeta = parseFloat(e.target.value);
+		draw();
+	});
+
+
+	function drawPoint(a, b) {
 		ctx.save();
-		ctx.strokeStyle = style;
-		ctx.fillStyle = style;
+		ctx.strokeStyle = "red";
 		ctx.lineWidth = 3.0;
 
+		let crossRadius = 7;
+
 		ctx.beginPath();
-		ctx.moveTo(0, f(0) * scale.y);
-		ctx.lineTo(fieldA * scale.x, (f(0) + fieldB) * scale.y);
+		ctx.moveTo(a - crossRadius, b);
+		ctx.lineTo(a + crossRadius, b);
+		ctx.moveTo(a, b - crossRadius);
+		ctx.lineTo(a, b + crossRadius);
+		
 		ctx.stroke();
-
-		const N = Math.sqrt(fieldA * fieldA + fieldB * fieldB);
-
-		/* we draw a triangle */
-		ctx.save();
-		ctx.translate(fieldA * scale.x, (f(0) + fieldB) * scale.y);
-		// ctx.rotate(Math.atan(fieldB / fieldA));
-		if (fieldA >= 0) {
-			ctx.rotate(Math.PI / 2 + Math.atan(fieldB / fieldA));
-		} else {
-			ctx.rotate(Math.PI / 2 + Math.atan(fieldB / fieldA) + Math.PI);
-		}
-
-		ctx.beginPath();
-		ctx.moveTo(0, 0);
-		ctx.lineTo(.1 * N * Math.sqrt(3) / 2 * scale.x, .1 * N * scale.y);
-		ctx.lineTo(-.1 * N * Math.sqrt(3) / 2 * scale.x, .1 * N * scale.y);
-		ctx.lineTo(0, 0);
-
-		ctx.fill();
-		ctx.restore();
 		ctx.restore();
 	}
+
+	let showSolution = false;
+	const buttonSolution = document.getElementById("show-log");
+	buttonSolution.addEventListener('click', (e) => {
+		showSolution = !showSolution;
+		draw();
+	});
+
 
 	/* main function */
 	function draw() {
@@ -395,10 +401,36 @@
 		drawGrid();
 		labelGrid();
 
-		/* draw function. */
-		drawFunction((x) => {return 2 * f(1.5 * x - 3) - 4;}, "green");
-		drawFunction((x) => {return fieldBeta * f(fieldAlpha * x - fieldA) + fieldB;}, "red");
-	}
+		/* draw objects of interest */
+		const c = 1.25;
+		const k = 1.84;
+		const retention = (x) => {
+			if (x < 1 / 60) return 10;
+			return 10 * k / (Math.pow(Math.log(x * 60), c) + k);
+		};
+
+
+
+		drawPoint(0, 10 * scale.y);
+		drawPoint(5 * scale.x, 1.7 * scale.y);
+		drawPoint(15 * scale.x, 1.4 * scale.y);
+		
+		// console.log(retention(1));
+		// console.log(retention(5));
+		// console.log(retention(15));
+
+		drawFunction2((x) => {return (50 * fieldBeta * Math.exp(-1 * fieldAlpha * (x - fieldA)) + fieldB) / 10; }, "red");
+		// drawFunction((x) => {return 1 / (10 * x);}, "blue");
+
+		// drawFunction(retention, "green");
+
+		const span = document.getElementById("sillabe-ricordate");
+		const value = 50 * fieldBeta * Math.exp(-1 * fieldAlpha * (1 - fieldA)) + fieldB;
+		span.textContent = value;
+
+		if (showSolution)
+			drawFunction(retention, "green");
+}	
 
 	function init() {
 		/* setup font */

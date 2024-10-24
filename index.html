@@ -279,6 +279,63 @@
 		</div>
 
 		<div class="slide">
+		  <h2>La curva dell'oblio</h2>
+		  <!-- ' -->
+
+		  <div class="box">
+			<div class="grid-2" style="grid-template-columns: 3fr 1fr;">
+			  <div>
+				Lo psicologo tedesco Hermann Ebbinghaus (~1880) studiò sperimentalmente la memorizzazione di sillabe no-sense, testandosi ripetutamente ad intervalli di tempo variabili.
+				Supponiamo che in uno dei suoi esperimenti la percentuale di sillabe ricordate correttamente fosse del \(\mathbf{100 \%}\) <b>inizialmente</b>, del \(\mathbf{17 \%}\) <b>dopo</b> \(\mathbf{5}\) <b>ore</b> e del \(\mathbf{14 \%}\) <b>dopo</b> \(\mathbf{15}\) <b>ore</b>.
+
+				<p>
+				  Indicati questi punti su di un grafico modifichiamo la funzione \(f(x) = 50e^{-x}\) in modo che si <b>avvicini il più possibile</b> a tutti e tre e usiamola per calcolare una <b>stima</b> della percentuale di sillabe ricordate dopo un'ora.			<!-- ' -->
+				</p>
+			  </div>
+			  <img src="Ebbinghaus2.jpg">
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
+		  <div class="grid-2" style="grid-template-columns: 3fr 1fr;">
+			<div class="canvas-container">
+			  <canvas id="plot-7" class="plot" width="600px" height="400px">
+				TODO alternative here.
+			  </canvas>
+			  
+			  <div style="display: flex; justify-content: center; align-items: center;">
+				\[y = \beta f(\alpha x - a) + b = 50\beta e^{\alpha (-x) - a} + b\]
+			  </div>
+
+			  <p>
+				stima sillabe ricordate dopo un'ora:
+				<!-- ' -->
+				<span id="sillabe-ricordate"></span>
+			  </p>
+			  
+			  <script src="plot-7.js" defer></script>
+			</div>
+			
+			<div style="display: grid;">
+			  <div class="box">
+				\(a = \)<input type="text" id="field-71" value="0">
+			  </div>
+			  <div class="box">
+				\(b = \)<input type="text" id="field-72" value="0">
+			  </div>
+			  <div class="box">
+				\(\alpha= \)<input type="text" id="field-73" value="1">
+			  </div>
+			  <div class="box">
+				\(\beta = \)<input type="text" id="field-74" value="1">
+			  </div>
+			  <button class="icon-button" id="show-log" style="margin-top: 20px;"><span class="material-icons">query_stats</span></button>
+			</div>
+		  </div>
+		</div>
+
+		<div class="slide">
 		  <h2>Autovalutazione</h2>
 
 		  <div class="box">
