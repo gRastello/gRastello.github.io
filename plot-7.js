@@ -426,7 +426,7 @@
 
 		const span = document.getElementById("sillabe-ricordate");
 		const value = 50 * fieldBeta * Math.exp(-1 * fieldAlpha * (1 - fieldA)) + fieldB;
-		span.textContent = value;
+		span.textContent = value.toFixed(2);
 
 		if (showSolution)
 			drawFunction(retention, "green");
